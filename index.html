@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин электроники</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Магазин электроники</div>
+        <nav>
+            <ul>
+                <li><a href="index.html"class="btn">Главная</a></li>
+                <li><a href="catalog.html" class="btn">Каталог</a></li> <!-- Обновленная ссылка на каталог -->
+                <li><a href="sales.html" class="btn">Акции</a></li>
+                <li><a href="contacts.html" class="btn">Контакты</a></li>
+                <li><a href="cart.html" class="btn">Корзина <span id="cart-count">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Лучшие предложения на электронику</h1>
+            <a href="catalog.html" class="btn">Смотреть сейчас</a>
+        </section>
+
+        <section class="products">
+            <h2>Популярные товары</h2>
+            <div class="product-card">
+                <img src="images/product1.jpg" alt="Ноутбук">
+                <h3>Ноутбук</h3>
+                <p>Цена: 50,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product2.jpg" alt="Смартфон">
+                <h3>Смартфон</h3>
+                <p>Цена: 30,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product3.jpg" alt="Телевизор">
+                <h3>Телевизор</h3>
+                <p>Цена: 40,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product4.jpg" alt="Планшет">
+                <h3>Планшет</h3>
+                <p>Цена: 25,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product5.jpg" alt="Наушники">
+                <h3>Наушники</h3>
+                <p>Цена: 5,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product6.jpg" alt="Камера">
+                <h3>Камера</h3>
+                <p>Цена: 70,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product7.jpg" alt="Часы">
+                <h3>Умные часы</h3>
+                <p>Цена: 15,000 ₽</p>
+                <button>🛒</button>
+            </div>
+            <div class="product-card">
+                <img src="images/product8.jpg" alt="Игровая консоль">
+                <h3>Игровая консоль</h3>
+                <p>Цена: 35,000 ₽</p>
+                <button>🛒</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    <p>&copy; 2025 Магазин электроники. Все права защищены.</p>
+    <div class="footer-info">
+        <h3>Покупателям</h3>
+        <ul>
+            <li><a href="shipping.html">Доставка</a></li>
+            <li><a href="returns.html">Возврат товаров</a></li>
+            <li><a href="faq.html">Часто задаваемые вопросы</a></li>
+        </ul>
+        <h3>Контакты</h3>
+        <ul>
+            <li>Email: support@electronics-store.ru</li>
+            <li>Телефон: +7 (123) 456-78-90</li>
+            <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
+        </ul>
+    </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    // Функция для добавления товара в корзину
+    function addToCart(product) {
+        // Получаем текущую корзину из localStorage или создаем новую
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Добавляем новый товар в корзину
+        cart.push(product);
+        
+        // Сохраняем обновленную корзину обратно в localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        alert(`${product.name} добавлен в корзину!`);
+        updateCartCount(); // Обновляем количество товаров в корзине
+    }
+
+    // Добавляем обработчики событий к кнопкам "Добавить в корзину"
+    document.querySelectorAll('.product-card button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const productName = button.parentElement.querySelector('h3').textContent;
+            const productPrice = parseInt(button.parentElement.querySelector('p').textContent.replace(/\D/g, ''));
+            addToCart({ name: productName, price: productPrice });
+        });
+    });
+ // Обновляем количество товаров при загрузке страницы
+      updateCartCount();
+    </script>
+</html>

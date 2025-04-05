@@ -1,0 +1,188 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Светлый фон для всего сайта */
+}
+
+header {
+    background-color: #e60000; /* Красный цвет, как у М.Видео */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffcccc; /* Светлый фон для приветственного блока */
+}
+
+button {
+    background-color: #007BFF; /* Синий цвет для кнопок */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+.products {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Выравнивание карточек по центру */
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 150px; /* Ширина карточки товара */
+    background-color: white; /* Белый фон для карточек */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для карточек */
+    transition: transform 0.3s; /* Плавный переход для эффекта при наведении */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Подъем карточки при наведении */
+}
+
+.product-card img {
+    width: 100%; /* Ширина изображения равна ширине карточки */
+    height: 150px; /* Фиксированная высота для изображений */
+    object-fit: cover; /* Обеспечивает обрезку изображения, чтобы оно заполнило контейнер */
+}
+
+.add-product {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+/* Стили для таблицы каталога */
+.catalog-table {
+    width: 100%;
+    border-collapse: collapse; /* Убираем двойные границы */
+}
+
+.catalog-table th,
+.catalog-table td {
+    border: 1px solid #ccc; /* Граница ячеек */
+    padding: 10px;
+}
+
+.catalog-table th {
+    background-color: #e60000; /* Красный фон заголовков */
+    color: white; /* Белый текст заголовков */
+}
+
+.catalog-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Светлый фон четных строк */
+}
+
+.catalog-table tr:hover {
+    background-color: #f1f1f1; /* Цвет при наведении на строку */
+}
+
+/* Стили для кнопок в таблице */
+.catalog-table button {
+   background-color: #007BFF; /* Синий цвет кнопок */
+   color: white;
+   border: none;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.catalog-table button:hover {
+   background-color: #0056b3; /* Темно-синий при наведении */
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Цвет фона */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+}
+.footer-info {
+    margin-top: 20px;
+}
+
+.footer-info h3 {
+    margin-bottom: 10px;
+}
+
+.footer-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-info li {
+    margin-bottom: 5px;
+}
+.footer-info a {
+    color: white; /* Устанавливаем цвет текста на белый */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.footer-info a:hover {
+    text-decoration: underline; /* Добавляем подчеркивание при наведении */
+}
+html, body {
+    height: 100%; /* Устанавливаем 100% высоты для html и body */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Устанавливаем вертикальное направление */
+}
+
+main {
+    flex: 1; /* Основной контент занимает оставшееся пространство */
+}
+
+footer {
+    background-color: #333333; /* Светло-черный цвет фона футера */
+    padding: 20px; /* Отступы внутри футера */
+    color: white; /* Цвет текста (по желанию) */
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Акции на электронику в нашем магазине. Скидки на телевизоры, мониторы, колонки и другую технику.">
+    <title>Акции - Магазин электроники</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0; /* Убираем отступы у body */
+        }
+        header {
+            background-color: #e60000; /* Красный цвет */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; /* Убираем отступы у nav ul */
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Синий цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            text-decoration: none; /* Убираем подчеркивание */
+            border-radius: 5px; /* Закругленные углы */
+            margin-top: 10px; /* Отступ сверху для кнопки */
+        }
+        .btn:hover {
+             background-color: #0056b3; /* Темнее синий при наведении */
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center; /* Центрируем текст */
+            background-color: white; /* Фон карточки товара */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тень для карточки */
+        }
+        .old-price {
+            text-decoration: line-through; /* Вычеркивание старой цены */
+        }
+        .new-price {
+            color: #e60000; /* Красный цвет для новой цены */
+            font-weight: bold; /* Жирный шрифт для новой цены */
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-card img {
+            width: 150px; /* Фиксированная ширина */
+            height: 150px; /* Фиксированная высота */
+            object-fit: cover; /* Сохранение пропорций изображения */
+        }
+        footer {
+           text-align:center; 
+           margin-top:20px; 
+           font-size:.8em; 
+           color:#777; 
+           padding-top: 20px; /* Добавляем отступ сверху для футера */
+           padding-bottom: 20px; /* Добавляем отступ снизу для футера */
+       }
+       
+       .cart-count {
+           font-weight:bold;
+       }
+       
+       .cart-count {
+           font-weight:bold;
+       }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="logo">Магазин электроники</div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="btn">Главная</a></li>
+            <li><a href="catalog.html" class="btn">Каталог</a></li> <!-- Обновленная ссылка на каталог -->
+            <li><a href="sales.html" class="btn">Акции</a></li>
+            <li><a href="contacts.html" class="btn">Контакты</a></li>
+            <li><a href="cart.html" class="btn">Корзина <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+ </header>
+
+ <main>
+     <h1>Товары со скидкой!</h1>
+
+      <div class="products">
+
+      <!-- Пример карточки товара со скидкой -->
+       <div class="product-card">
+       <img src="images/tv.jpg" alt="Телевизор">
+       <h3>Телевизор Samsung 55"</h3>
+       <p class="old-price">Цена: 60,000 ₽</p> <!-- Старая цена -->
+       <p class="new-price">Цена со скидкой: 45,000 ₽</p> <!-- Новая цена -->
+       <button>🛒</button>
+   </div>
+    <div class="product-card">
+       <img src="images/monitor.jpg" alt="Монитор">
+       <h3>Монитор LG 27"</h3>
+       <p class="old-price">Цена: 25,000 ₽</p> 
+       <p class="new-price">Цена со скидкой: 20,000 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Монитор LG 27%'>🛒</button> 
+    </div>
+
+    <div class="product-card">
+       <img src="images/speaker.jpg" alt="Колонка">
+       <h3>Колонка JBL Flip 5</h3>
+       <p class="old-price">Цена: 10,000 ₽</p> 
+       <p class="new-price">Цена со скидкой: 7,500 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Колонка JBL Flip 5'>🛒</button> 
+    </div>
+
+    <!-- Дополнительные товары -->
+    <div class='product-card'>
+       <img src='images/microwave.jpg' alt='Микроволновка'>
+       <h3>Микроволновая печь Panasonic NN-GD38HSUPG</h3>
+       <p class='old-price'>Цена: 15,000 ₽</p> 
+       <p class='new-price'>Цена со скидкой: 12,000 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Микроволновая печь Panasonic NN-GD38HSUPG'>🛒</button> 
+    </div>
+
+    <!-- Можно добавить еще больше товаров -->
+
+    <!-- Пример еще одного товара -->
+    <div class='product-card'>
+       <img src='images/coffeemaker.jpg' alt='Кофемашина'>
+       <h3>Кофемашина De'Longhi EC685.M Dedica Style</h3>
+       <p class='old-price'>Цена: 30,000 ₽</p> 
+       <p class='new-price'>Цена со скидкой: 25,000 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Кофемашина De\'Longhi EC685.M Dedica Style'>🛒</button> 
+    </div>
+
+    <!-- Можно добавить еще больше товаров -->
+
+    <!-- Пример еще одного товара -->
+    <div class='product-card'>
+       <img src='images/laptop.jpg' alt='Ноутбук'>
+       <h3>Ноутбук HP Pavilion x360</h3>
+       <p class='old-price'>Цена: 70,000 ₽</p> 
+       <p class='new-price'>Цена со скидкой: 55,000 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Ноутбук HP Pavilion x360'>🛒</button> 
+    </div>
+
+   <!-- Еще один пример товара -->
+   <div class='product-card'>
+       <img src='images/tablet.jpg' alt='Планшет'>
+       <h3>Планшет Apple iPad Air (2022)</h3>
+       <p class='old-price'>Цена: 50,000 ₽</p> 
+       <p class='new-price'>Цена со скидкой: 40,000 ₽</p> 
+       <button class='btn add-to-cart' data-product-name='Планшет Apple iPad Air (2022)'>🛒</button> 
+    </div>
+
+    <!-- Можно добавить еще больше товаров -->
+
+    </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Магазин электроники. Все права защищены.</p>
+        <div class="footer-info">
+          <h3>Покупателям</h3>
+           <ul>
+               <li><a href="shipping.html">Доставка</a></li>
+               <li><a href="returns.html">Возврат товаров</a></li>
+               <li><a href="faq.html">Часто задаваемые вопросы</a></li>
+          </ul>
+          <h3>Контакты</h3>
+            <ul>
+              <li>Email: support@electronics-store.ru</li>
+              <li>Телефон: +7 (123) 456-78-90</li>
+              <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
+          </ul>
+     </div>
+   </footer>
+   <script src="script.js"></script>
+    </body>
+     <script>
+    // Функция для добавления товара в корзину
+    function addToCart(product) {
+        // Получаем текущую корзину из localStorage или создаем новую
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Добавляем новый товар в корзину
+        cart.push(product);
+        
+        // Сохраняем обновленную корзину обратно в localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        alert(`${product.name} добавлен в корзину!`);
+        updateCartCount(); // Обновляем количество товаров в корзине
+    }
+    // Добавляем обработчики событий к кнопкам "Добавить в корзину"
+    document.querySelectorAll('.product-card button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const productName = button.parentElement.querySelector('h3').textContent;
+            const productPrice = parseInt(button.parentElement.querySelector('p').textContent.replace(/\D/g, ''));
+            addToCart({ name: productName, price: productPrice });
+        });
+    });
+ // Обновляем количество товаров при загрузке страницы
+      updateCartCount();
+    </script>
+</html>

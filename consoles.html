@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приставки - Магазин электроники</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+
+<header>
+    <div class="logo">Магазин электроники</div>
+    <nav>
+        <ul>
+            <li><a href="index.html"class="btn">Главная</a></li>
+            <li><a href="catalog.html" class="btn">Каталог</a></li> <!-- Обновленная ссылка на каталог -->
+            <li><a href="sales.html" class="btn">Акции</a></li>
+            <li><a href="contacts.html" class="btn">Контакты</a></li>
+            <li><a href="cart.html" class="btn">Корзина <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+<h1>Приставки</h1>
+
+<div class="products">
+   <!-- Пример карточки товара -->
+   <div class="product-card">
+       <img src="images/console1.jpg" alt="Приставка 1">
+       <h3>Приставка 1</h3>
+       <p>Цена: 25,000 ₽</p>
+       <button>🛒</button>
+   </div>
+
+   <div class="product-card">
+       <img src="images/console2.jpg" alt="Приставка 2">
+       <h3>Приставка 2</h3>
+       <p>Цена: 35,000 ₽</p>
+       <button>🛒</button>
+   </div>
+
+   <!-- Добавьте больше карточек товаров по мере необходимости -->
+
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Магазин электроники. Все права защищены.</p>
+    <div class="footer-info">
+        <h3>Покупателям</h3>
+        <ul>
+            <li><a href="shipping.html">Доставка</a></li>
+            <li><a href="returns.html">Возврат товаров</a></li>
+            <li><a href="faq.html">Часто задаваемые вопросы</a></li>
+        </ul>
+        <h3>Контакты</h3>
+        <ul>
+            <li>Email: support@electronics-store.ru</li>
+            <li>Телефон: +7 (123) 456-78-90</li>
+            <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
+        </ul>
+    </div>
+    </footer>
+
+<script src="script.js"></script>
+</body>\
+<script>
+   // Функция для добавления товара в корзину
+    function addToCart(product) {
+        // Получаем текущую корзину из localStorage или создаем новую
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Добавляем новый товар в корзину
+        cart.push(product);
+        
+        // Сохраняем обновленную корзину обратно в localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        alert(`${product.name} добавлен в корзину!`);
+        updateCartCount(); // Обновляем количество товаров в корзине
+    }
+
+    // Добавляем обработчики событий к кнопкам "Добавить в корзину"
+    document.querySelectorAll('.product-card button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const productName = button.parentElement.querySelector('h3').textContent;
+            const productPrice = parseInt(button.parentElement.querySelector('p').textContent.replace(/\D/g, ''));
+            addToCart({ name: productName, price: productPrice });
+        });
+    });
+    // Обновляем количество товаров при загрузке страницы
+      updateCartCount();
+</script>
+</html>

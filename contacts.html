@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Магазин электроники</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Убираем отступы у body */
+            padding: 0; /* Убираем внутренние отступы у body */
+            background-color: #f4f4f4; /* Цвет фона страницы */
+        }
+
+        .contact-container {
+            max-width: 800px; /* Максимальная ширина рамки */
+            margin: 0 auto; /* Центрирование рамки */
+            padding: 20px;
+            background-color: white; /* Цвет фона рамки */
+            border-radius: 10px; /* Закругленные углы рамки */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для рамки */
+        }
+
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            color: #e60000; /* Цвет заголовка */
+        }
+
+        p {
+            line-height: 1.6; /* Межстрочный интервал */
+            font-size: 16px; /* Размер шрифта */
+        }
+
+        .contact-info {
+            margin-top: 20px; /* Отступ сверху для блока с контактами */
+        }
+
+        .contact-info h2 {
+            color: #333; /* Цвет подзаголовков */
+        }
+
+        footer {
+            margin-top: 20px; /* Отступ сверху для футера (можно убрать, если не нужен) */
+            padding: 20px;
+            background-color: #333; /* Цвет фона футера */
+            color: white; /* Цвет текста футера */
+        }
+
+        footer ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding-left: 0; /* Убираем внутренние отступы у списка */
+        }
+
+        footer ul li {
+            margin-bottom: 10px; /* Отступ между элементами списка */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Магазин электроники</div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="btn">Главная</a></li>
+            <li><a href="catalog.html" class="btn">Каталог</a></li> <!-- Обновленная ссылка на каталог -->
+            <li><a href="sales.html" class="btn">Акции</a></li>
+            <li><a href="contacts.html" class="btn">Контакты</a></li>
+            <li><a href="cart.html" class="btn">Корзина <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<div class="contact-container">
+    <h1>Контактная информация</h1>
+
+    <div class="contact-info">
+        <h2>Техническая поддержка:</h2>
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Email: support@electronics-store.ru</p>
+
+        <h2>Отдел доставки:</h2>
+        <p>Телефон: +7 (123) 456-78-91</p>
+        <p>Email: delivery@electronics-store.ru</p>
+
+        <h2>Контакты компании:</h2>
+        <p>ООО "Электроника"</p>
+        <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+        <p>Email: info@electronics-store.ru</p>
+
+        <h2>Мы всегда рады помочь!</h2>
+    </div>
+
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2025 Магазин электроники. Все права защищены.</p>
+    <div class="footer-info">
+        <h3>Покупателям</h3>
+        <ul>
+            <li><a href="shipping.html">Доставка</a></li>
+            <li><a href="returns.html">Возврат товаров</a></li>
+            <li><a href="faq.html">Часто задаваемые вопросы</a></li>
+        </ul>
+
+        <!-- Закрывающий тег добавлен здесь -->
+        <h3>Контакты</h3>
+        <ul>
+            <li>Email: support@electronics-store.ru</li>
+            <li>Телефон: +7 (123) 456-78-90</li>
+            <li>Адрес: г. Москва, ул. Примерная, д. 1</li>
+        </ul>
+    </div><!-- Закрывающий тег div.footer-info -->
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+// Функция для добавления товара в корзину
+function addToCart(product) {
+    // Получаем текущую корзину из localStorage или создаем новую
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Добавляем новый товар в корзину
+    cart.push(product);
+    
+    // Сохраняем обновленную корзину обратно в localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    alert(`${product.name} добавлен в корзину!`);
+    updateCartCount(); // Обновляем количество товаров в корзине
+}
+
+// Добавляем обработчики событий к кнопкам "Добавить в корзину"
+document.querySelectorAll('.product-card button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const productName = button.parentElement.querySelector('h3').textContent;
+        const productPrice = parseInt(button.parentElement.querySelector('p').textContent.replace(/\D/g, ''));
+        
+        addToCart({ name: productName, price: productPrice });
+    });
+});
+
+// Обновляем количество товаров при загрузке страницы
+updateCartCount();
+</script>
+
+</body>
+</html>
